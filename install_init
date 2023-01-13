@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Create a .gitignore file
-cat > .gitignore <<EOF
+# Create a .gitconfig file
+cat > .gitconfig <<EOF
 [user]
     name = $GIT_NAME
     email = $GIT_EMAIL
