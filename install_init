@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Create a .gitignore file
+cat > .gitignore <<EOF
+[user]
+    name = $GIT_NAME
+    email = $GIT_EMAIL
+EOF
+
+# Install Ohmyzsh
+sudo apt install zsh -y
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Create symlinks in the Home directory to the real files in repo
+rm -rf ~/.zshrc
+ln -s ~/.dotfiles/.zshrc ~/.zshrc
+ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
+
+# Install Homebrew dependencies
+sudo apt install build-essential procps curl file git -y
+
+# Install Homebrew
+yes | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo '# Set PATH, MANPATH, etc., for Homebrew.' >> ~/.zprofile
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.zprofile
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Then pass in the Brewfile location
+brew bundle --file ~/.dotfiles/Brewfile
