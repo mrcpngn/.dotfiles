@@ -10,8 +10,8 @@ git clone https://github.com/mrcpngn/.dotfiles.git
 
 2. Input your git credentials as a environment variables
 ```zsh
-GIT_NAME="<NAME_HERE>"
-GIT_EMAIL="<EMAIL_HERE>"
+export GIT_NAME="<NAME_HERE>"
+export GIT_EMAIL="<EMAIL_HERE>"
 ```
 
 3. Run the init installer
