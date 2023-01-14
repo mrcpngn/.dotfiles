@@ -1,8 +1,6 @@
 # Essential brew dependencies
 tap "homebrew/bundle"
 tap "homebrew/core"
-# UNIX Shell (command interpreter)
-brew "zsh"
 # Applications to install
 brew "python@3.9"
 brew "ruby"
